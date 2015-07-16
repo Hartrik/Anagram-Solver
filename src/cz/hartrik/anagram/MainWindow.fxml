@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.hartrik.anagram.MainWindowController">
+   <children>
+      <VBox layoutX="312.0" layoutY="66.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="55.0" styleClass="panel-top">
+               <children>
+                  <TextField fx:id="textField" layoutX="14.0" layoutY="13.0" onKeyReleased="#onKey" prefHeight="29.0" prefWidth="180.0" promptText="přesmyčka" styleClass="input" AnchorPane.leftAnchor="10.0" />
+                  <ProgressIndicator fx:id="progressIndicator" layoutX="200.0" layoutY="16.0" prefHeight="24.0" prefWidth="24.0" visible="false" AnchorPane.leftAnchor="200.0" />
+                  <Hyperlink layoutX="512.0" layoutY="18.0" onAction="#showInfo" text="O programu" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
+               </children>
+               <effect>
+                  <Reflection />
+               </effect>
+            </AnchorPane>
+            <HBox VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox minWidth="200.0" styleClass="panel-left" HBox.hgrow="NEVER">
+                     <children>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="84.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="96.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="NEVER" />
+                            <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="NEVER" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Znaky" />
+                              <Label text="Permutace" GridPane.rowIndex="1" />
+                              <Label fx:id="lChars" text="-" GridPane.columnIndex="1" />
+                              <Label fx:id="lPerms" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                        </GridPane>
+                        <Label layoutX="20.0" layoutY="70.0" styleClass="title" text="Nastavení" />
+                        <CheckBox fx:id="cbPermutations" mnemonicParsing="false" text="Vypsat permutace" />
+                        <CheckBox fx:id="cbSorted" mnemonicParsing="false" text="Řadit výsledky" />
+                        <Label styleClass="title" text="Slovník" />
+                        <CheckBox fx:id="cbDictCzech" mnemonicParsing="false" selected="true" text="Český" />
+                        <CheckBox fx:id="cbDictEnglish" mnemonicParsing="false" text="Anglický" />
+                        <HBox alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+                           <children>
+                              <CheckBox fx:id="cbDictUser" mnemonicParsing="false" selected="true" text="Uživatelský" />
+                              <Hyperlink onAction="#selectUserDictionary" text="(spravovat)" />
+                           </children>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children></VBox>
+                  <HBox styleClass="content-panel" HBox.hgrow="ALWAYS">
+                     <children>
+                        <TextArea fx:id="taPermutations" editable="false" HBox.hgrow="SOMETIMES" />
+                        <TextArea fx:id="taResult" editable="false" HBox.hgrow="SOMETIMES" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <stylesheets>
+    <URL value="@main_window.css" />
+  </stylesheets>
+</AnchorPane>

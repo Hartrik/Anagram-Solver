@@ -1,0 +1,46 @@
+
+.root {
+    -fx-font-size: 12;
+}
+
+/* toolbar */
+
+.tool-bar .button {
+    -fx-padding: 2 6 2 6;
+}
+
+/* seznam slovníků */
+
+.list-view {
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+    
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+/* panel s podrobnostmi o vybraném slovníku */
+
+.selected-content {
+    -fx-padding: 10 10 10 10;
+}
+
+.selected-content .title1 {
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+}
+
+.selected-content .title2 {
+    -fx-padding: 10px 0px 0px 0px;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+}
+
+/* informační zpráva pod panelem s podrobnostmi */
+
+.info-message {
+    -fx-font-size: 10px;
+    -fx-text-fill: #666666;
+    -fx-padding: 0 0 0 5;
+}

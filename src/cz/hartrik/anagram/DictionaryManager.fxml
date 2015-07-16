@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.hartrik.anagram.DictionaryManagerController">
+    <stylesheets>
+        <URL value="@dictionary_manager.css" />
+    </stylesheets>
+   <children>
+      <SplitPane dividerPositions="0.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+            <ListView fx:id="listView" minWidth="180.0" prefWidth="180.0" SplitPane.resizableWithParent="false" />
+            <VBox>
+               <children>
+                  <Separator prefWidth="200.0" />
+                  <ToolBar>
+                     <items>
+                        <Button fx:id="bAdd" mnemonicParsing="false" onAction="#addDictionary" prefWidth="80.0" text="Přidat" />
+                        <Button fx:id="bRemove" disable="true" mnemonicParsing="false" onAction="#removeDictionary" prefWidth="80.0" text="Odebrat" />
+                     </items>
+                  </ToolBar>
+                  <VBox fx:id="contentArea" styleClass="selected-content" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="lTitle" styleClass="title1" text="&lt;title&gt;" />
+                        <Label fx:id="lDescription" text="&lt;description&gt;" />
+                        <Label layoutX="20.0" layoutY="20.0" styleClass="title2" text="Rozložení podle délky slov" />
+                        <BarChart fx:id="chart" animated="false" legendVisible="false" VBox.vgrow="ALWAYS">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                     </children>
+                  </VBox>
+                  <Label styleClass="info-message" text="Slovníky je možné přidat také přetažením." />
+               </children>
+            </VBox>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

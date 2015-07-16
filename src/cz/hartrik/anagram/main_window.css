@@ -1,0 +1,74 @@
+
+/* pozadí */
+
+.root {
+    -fx-background-image: url("texture%20-%20background.png");
+    -fx-font-size: 12;
+}
+
+/* horní lišta */
+
+.panel-top {
+    -fx-background-image: url("texture%20-%20top.png");
+    -fx-border-width: 1px;
+    -fx-border-color: transparent transparent #666666 transparent;
+}
+
+.panel-top .text-field {
+    -fx-font-size: 14;
+    -fx-font-family: "Courier New"
+}
+
+/* lišta po levé straně */
+
+.panel-left {
+    -fx-background-image: url("texture%20-%20left.png");
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+}
+
+.panel-left .label {
+    -fx-text-fill: #cccccc;
+}
+
+.panel-left .title {
+    -fx-padding: 10px 0px 0px 0px;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+}
+
+.panel-left .check-box {
+    -fx-text-fill: #cccccc;
+}
+
+/* obsah */
+
+.content-panel {
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+}
+
+.content-panel .text-area {
+    -fx-font-size: 12;
+    -fx-font-family: "Courier New"
+}
+
+/* hyperlink */
+
+.hyperlink {
+    -fx-text-fill: -fx-accent;
+}
+
+.hyperlink:focused {
+    -fx-border-width: 0;
+    -fx-border-color: transparent;
+}
+
+.hyperlink:visited {
+    -fx-text-fill: -fx-accent;
+    -fx-underline: false;
+}
+
+.hyperlink:hover {
+    -fx-underline: true;
+}

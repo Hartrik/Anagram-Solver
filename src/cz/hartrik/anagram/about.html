@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>O programu</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            body {
+                padding: 0px 10px 0px 10px;
+                font-family: sans-serif;
+                font-size: 12px;
+                line-height: 20px;
+            }
+            
+            .history-table {
+                width: 100%;
+            }
+            
+            .history-table, .history-table th, .history-table td  {
+                border: 1px solid #C0C0C0;
+                padding: 5px 15px 5px 15px;
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Lamač přesmyček</h2>
+        <span>Verze: 3.1 (2015-02-04)</span>
+        <p>&copy; 2015 Patrik Harag <br> <code>patrik.harag@gmail.com</code></p>
+
+        <h3>O programu</h3>
+
+        <i> Možná se Vám již někdy stalo, že jste v časopisu, novinách nebo
+            jinde narazili na nějakou záludnou přesmyčku a nemohli jste ji
+            vyřešit.
+            Pomůže Vám tento jednoduchý program – <b>Lamač přesmyček</b>. </i>
+
+        <h3>Použití</h3>
+        <p> Přesmyčka se napíše do textového pole a po stisku klávesy <i>enter</i>
+            dojde k jejímu vyřešení. Vyřešení by mělo být prakticky okamžité.
+            <br/>
+            Délka přesmyčky není nijak omezena. Na velikosti písmen
+            nezáleží. </p>
+
+        <p> Pokud nebude nalezeno žádné odpovídající slovo, stále je možnost
+            ho najít ručně ve výpisu permutací.
+            Výpis permutací je možné provést až do délky 10 znaků nebo 25 000
+            permutací.</p>
+
+        <h3>Slovníky</h3>
+        
+        <h4>Vestavěné</h4>
+        <ul>
+            <li><b>český</b> – 1 070 713 slov</li>
+            <li><b>anglický</b> – 632 184 slov (včetně slov s apostrofem)</li>
+        </ul>
+        
+        <h4>Uživatelské</h4>
+        <p> Uživatel má možnost přidat vlastní slovníky. <br/>
+            Mohou být přidány pouze textové soubory s kódováním UTF-8,
+            na příponě souboru nezáleží. Každý řádek představuje jeden záznam.
+            Jediná prováděná úprava je oříznutí každého řádku od bílých znaků.
+            Na velikosti znaků opět nezáleží.
+        </p>
+        
+        <h3>Zdroje</h3>
+        <ul>
+            <li>
+                <i> Český národní korpus: Srovnávací frekvenční seznamy.
+                    Ústav Českého národního korpusu FF UK, Praha 2010.
+                    Dostupné z WWW: http://ucnk.ff.cuni.cz/srovnani10.php </i>
+            </li>
+        </ul>
+        
+        <h3>Historie verzí</h3>
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Verze</th>
+                    <th>Datum</th>
+                    <th>Popis</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1.0</td>
+                    <td>2013&#8209;01&#8209;27</td>
+                    <td>první verze</td>
+                </tr>
+                <tr>
+                    <td>1.1</td>
+                    <td>2013&#8209;01&#8209;28</td>
+                    <td>vyhledávání zrychleno<br>
+                </tr>
+                <tr>
+                    <td>1.2</td>
+                    <td>2013&#8209;01&#8209;29</td>
+                    <td>
+                        &bull; otevřeny zdrojové kódy<br>
+                        &bull; drobné úpravy <br>
+                </tr>
+                <tr>
+                    <td>1.3</td>
+                    <td>2013&#8209;02&#8209;02</td>
+                    <td>
+                        &bull; přidán anglický slovník <br>
+                        &bull; český slovník upraven <br>
+                        &bull; již nezáleží na velikosti znaků <br>
+                        &bull; informace o aplikaci přesunuty do vlastního okna <br>
+                        &bull; rozsáhlé změny v GUI <br>
+                </tr>
+                <tr>
+                    <td>1.4</td>
+                    <td>2013&#8209;02&#8209;06</td>
+                    <td>
+                        &bull; nový způsob vyhledávání pro delší slova <br>
+                </tr>
+                <tr>
+                    <td>1.5</td>
+                    <td>2013&#8209;03&#8209;26</td>
+                    <td>
+                        &bull; větší stabilita aplikace <br>
+                        &bull; odstranění jednoho progressbaru <br>
+                        &bull; měření rychlosti – najetím na progressbar <br>
+                </tr>
+                <tr>
+                    <td>2.0</td>
+                    <td>2013&#8209;06&#8209;01</td>
+                    <td>
+                        &bull; téměř kompletní přepis – OOP, přehlednost, komentáře <br>
+                        &bull; slovníky přesunuty do textových souborů => rychlejší načítání, přehlednost <br>
+                        &bull; informace přesunuty do samostatného HTML dokumentu <br>
+                        &bull; look and feel změněn na nimbus (pro všechny platformy stejný vzhled) <br>
+                        &bull; značně zrychleno vypisování permutací => odstraněn progressbar <br>
+                </tr>
+                <tr>
+                    <td>3.0</td>
+                    <td>2015&#8209;02&#8209;03</td>
+                    <td>
+                        &bull; kompletní přepis + přechod na Javu 8<br>
+                        &bull; změna vzhledu (JavaFX) <br>
+                        &bull; délka přesmyčky již není omezena <br>
+                        &bull; přidán správce slovníků, podpora pro uživatelské slovníky <br>
+                        &bull; značně rozšířeny vestavěné slovníky <br>
+                        &bull; "líné" načítání vestavěných slovníků (po částech) <br>
+                        &bull; řešení přesmyček má nyní nízkou časovou složitost <br>
+                </tr>
+                <tr>
+                    <td>3.1</td>
+                    <td>2015&#8209;02&#8209;04</td>
+                    <td>
+                        &bull; opraveno načítání slovníků (na os Linux nefunkční) <br>
+                        &bull; drobné úpravy ve vzhledu <br>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
