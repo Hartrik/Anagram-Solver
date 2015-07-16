@@ -1,5 +1,7 @@
 # Lamač přesmyček
 
+*English localization is not available.*
+
 ## O programu
 Lamač přesmyček je jednoduchý, snadno ovladatelný program napsaný v Javě. Neinstaluje se a v počítači nezanechává žádné soubory.
 
