@@ -44,6 +44,7 @@
                            </children>
                         </GridPane>
                         <Label layoutX="20.0" layoutY="70.0" styleClass="title" text="Nastavení" />
+                        <CheckBox fx:id="cbIgnoreDiacritics" mnemonicParsing="false" text="Ignorovat diakritiku" />
                         <CheckBox fx:id="cbPermutations" mnemonicParsing="false" text="Vypsat permutace" />
                         <CheckBox fx:id="cbSorted" mnemonicParsing="false" text="Řadit výsledky" />
                         <Label styleClass="title" text="Slovník" />
