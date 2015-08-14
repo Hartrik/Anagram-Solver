@@ -1,20 +1,14 @@
 package cz.hartrik.anagram;
 
+import cz.hartrik.common.Exceptions;
 import cz.hartrik.common.ui.javafx.DragAndDropInitializer;
 import cz.hartrik.dictionary.Dictionary;
 import cz.hartrik.dictionary.IDictionary;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -33,7 +27,7 @@ import javafx.stage.Window;
 /**
  * FXML Controller class
  *
- * @version 2015-02-03
+ * @version 2015-08-13
  * @author Patrik Harag
  */
 public class DictionaryManagerController implements Initializable {
@@ -52,7 +46,7 @@ public class DictionaryManagerController implements Initializable {
     @FXML private BarChart<String, Integer> chart;
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(java.net.URL url, ResourceBundle rb) {
         fileChooser = new FileChooser();
         fileChooser.setTitle("Vybrat slovník");
         fileChooser.setInitialDirectory(new File("."));
@@ -117,11 +111,7 @@ public class DictionaryManagerController implements Initializable {
     }
 
     private void addFiles(List<Path> files) {
-        files.stream().forEach((file) -> {
-            try {
-                addFile(file);
-            } catch (Exception ex) { }
-        });
+        files.stream().forEach(Exceptions.silentConsumer(this::addFile));
     }
 
     private void addFile(Path file) throws IOException {
@@ -132,10 +122,10 @@ public class DictionaryManagerController implements Initializable {
 
             UserDictionary userDictionary = new UserDictionary(file);
             Files.lines(file)
-                    .filter(line -> !Objects.isNull(line))
                     .map(String::trim)
                     .filter(word -> !word.isEmpty())
                     .map(String::toLowerCase)
+                 // .distinct()  // příliš drahá operace
                     .forEach(userDictionary::add);
 
             listView.getItems().add(userDictionary);
@@ -143,18 +133,14 @@ public class DictionaryManagerController implements Initializable {
     }
 
     private boolean sameFile(Path file1, Path file2) {
-        try {
-            return Files.isSameFile(file1, file2);
-        } catch (IOException ex) {
-            return false;
-        }
+        return Exceptions.call(() -> Files.isSameFile(file1, file2)).orElse(false);
     }
 
     public static class UserDictionary extends Dictionary<Collection<String>> {
         private final Path file;
 
         public UserDictionary(Path file) {
-            super(file.getFileName().toString(), i -> new LinkedHashSet<>());
+            super(file.getFileName().toString(), i -> new LinkedList<>());
             this.file = file;
         }
     }
