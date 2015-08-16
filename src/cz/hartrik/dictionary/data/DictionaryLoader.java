@@ -10,15 +10,13 @@ import java.util.Collection;
 import java.util.Objects;
 
 /**
- * @version 2015-07-19
+ * @version 2015-08-16
  * @author Patrik Harag
  */
 public class DictionaryLoader {
 
     private DictionaryLoader() {}
 
-    static final String CZ_NAME = "Český slovník";
-    static final String EN_NAME = "Anglický slovník";
     static final String CZ_PACKAGE = "/cz/hartrik/dictionary/data/cz/";
     static final String EN_PACKAGE = "/cz/hartrik/dictionary/data/en/";
     static final String CZ_FORMAT = "czech_%02d.txt";
@@ -28,12 +26,12 @@ public class DictionaryLoader {
 
     // slovníky
 
-    public static IDictionary createCzDictionary() {
-        return createDictionary(CZ_NAME, CZ_PACKAGE, CZ_FORMAT, CZ_STRUCT);
+    public static IDictionary createCzDictionary(String name) {
+        return createDictionary(name, CZ_PACKAGE, CZ_FORMAT, CZ_STRUCT);
     }
 
-    public static IDictionary createEnDictionary() {
-        return createDictionary(EN_NAME, EN_PACKAGE, EN_FORMAT, EN_STRUCT);
+    public static IDictionary createEnDictionary(String name) {
+        return createDictionary(name, EN_PACKAGE, EN_FORMAT, EN_STRUCT);
     }
 
     private static IDictionary createDictionary(
@@ -58,12 +56,12 @@ public class DictionaryLoader {
 
     // "falešné" slovníky
 
-    public static IDictionary createFakeCzDictionary() {
-        return createFakeDictionary(CZ_NAME, CZ_PACKAGE, CZ_STRUCT);
+    public static IDictionary createFakeCzDictionary(String name) {
+        return createFakeDictionary(name, CZ_PACKAGE, CZ_STRUCT);
     }
 
-    public static IDictionary createFakeEnDictionary() {
-        return createFakeDictionary(EN_NAME, EN_PACKAGE, EN_STRUCT);
+    public static IDictionary createFakeEnDictionary(String name) {
+        return createFakeDictionary(name, EN_PACKAGE, EN_STRUCT);
     }
 
     private static IDictionary createFakeDictionary(

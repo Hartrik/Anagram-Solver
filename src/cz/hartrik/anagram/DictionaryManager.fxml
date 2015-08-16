@@ -22,15 +22,15 @@
                   <Separator prefWidth="200.0" />
                   <ToolBar>
                      <items>
-                        <Button fx:id="bAdd" mnemonicParsing="false" onAction="#addDictionary" prefWidth="80.0" text="Přidat" />
-                        <Button fx:id="bRemove" disable="true" mnemonicParsing="false" onAction="#removeDictionary" prefWidth="80.0" text="Odebrat" />
+                        <Button fx:id="bAdd" mnemonicParsing="false" onAction="#addDictionary" prefWidth="80.0" text="%manager/button/add" />
+                        <Button fx:id="bRemove" disable="true" mnemonicParsing="false" onAction="#removeDictionary" prefWidth="80.0" text="%manager/button/remove" />
                      </items>
                   </ToolBar>
                   <VBox fx:id="contentArea" styleClass="selected-content" VBox.vgrow="ALWAYS">
                      <children>
                         <Label fx:id="lTitle" styleClass="title1" text="&lt;title&gt;" />
                         <Label fx:id="lDescription" text="&lt;description&gt;" />
-                        <Label layoutX="20.0" layoutY="20.0" styleClass="title2" text="Rozložení podle délky slov" />
+                        <Label layoutX="20.0" layoutY="20.0" styleClass="title2" text="%manager/dict/chart-title" />
                         <BarChart fx:id="chart" animated="false" legendVisible="false" VBox.vgrow="ALWAYS">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
@@ -41,7 +41,7 @@
                         </BarChart>
                      </children>
                   </VBox>
-                  <Label styleClass="info-message" text="Slovníky je možné přidat také přetažením." />
+                  <Label styleClass="info-message" text="%manager/info" />
                </children>
             </VBox>
         </items>

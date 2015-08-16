@@ -1,7 +1,8 @@
 package cz.hartrik.anagram;
 
-import java.io.IOException;
+import cz.hartrik.common.Exceptions;
 import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,31 +11,27 @@ import javafx.stage.Stage;
 
 /**
  * Okno se správcem slovníků.
- * 
- * @version 2015-02-02
+ *
+ * @version 2015-08-16
  * @author Patrik Harag
  */
 public class DictionaryManager extends Stage {
 
-    public static final String TITLE = Main.APP_NAME + " - správce slovníků";
-           static final String FILE_FXML = "DictionaryManager.fxml";
-           static final String FILE_ICON = "icon - dictionary.png";
-    
+    static final String FILE_FXML = "DictionaryManager.fxml";
+    static final String FILE_ICON = "icon - dictionary.png";
+
     private final DictionaryManagerController controller;
-    
-    public DictionaryManager() {
+
+    public DictionaryManager(ResourceBundle rb) {
         final URL url = getClass().getResource(FILE_FXML);
-        final FXMLLoader fxmlLoader = new FXMLLoader(url);
-        
-        try {
-            setScene(new Scene((Parent) fxmlLoader.load()));
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        }
-        
+        final FXMLLoader fxmlLoader = new FXMLLoader(url, rb);
+
+        Exceptions.unchecked(
+                () -> setScene(new Scene((Parent) fxmlLoader.load())));
+
         controller = fxmlLoader.getController();
-        
-        setTitle(TITLE);
+
+        setTitle(String.format(rb.getString("manager/frame-title"), Main.APP_VERSION));
         getIcons().add(new Image(getClass().getResourceAsStream(FILE_ICON)));
         setMinHeight(400);
         setMinWidth(750);

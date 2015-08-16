@@ -27,7 +27,7 @@ import javafx.stage.Window;
 /**
  * FXML Controller class
  *
- * @version 2015-08-13
+ * @version 2015-08-16
  * @author Patrik Harag
  */
 public class DictionaryManagerController implements Initializable {
@@ -48,13 +48,15 @@ public class DictionaryManagerController implements Initializable {
     @Override
     public void initialize(java.net.URL url, ResourceBundle rb) {
         fileChooser = new FileChooser();
-        fileChooser.setTitle("Vybrat slovník");
+        fileChooser.setTitle(rb.getString("manager/file-chooser/title"));
         fileChooser.setInitialDirectory(new File("."));
 
         mainContent = new ArrayList<>(contentArea.getChildren());
         contentArea.getChildren().clear();
 
-        listView.setCellFactory(new DictionaryCellFactory());
+        listView.setCellFactory(
+                new DictionaryCellFactory(rb.getString("manager/dict/built-in")));
+
         listView.getSelectionModel()
                 .selectedItemProperty()
                 .addListener((observable, previous, dict) -> {
@@ -67,7 +69,7 @@ public class DictionaryManagerController implements Initializable {
 
                 lTitle.setText(dict.name());
 
-                final String format = "Obsahuje celkem %,d slov.";
+                String format = rb.getString("manager/dict/description");
                 lDescription.setText(String.format(format, dict.size()));
 
                 chart.getData().setAll(

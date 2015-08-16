@@ -15,9 +15,9 @@
          <children>
             <AnchorPane prefHeight="55.0" styleClass="panel-top">
                <children>
-                  <TextField fx:id="textField" layoutX="14.0" layoutY="13.0" onKeyReleased="#onKey" prefHeight="29.0" prefWidth="180.0" promptText="přesmyčka" styleClass="input" AnchorPane.leftAnchor="10.0" />
+                  <TextField fx:id="textField" layoutX="14.0" layoutY="13.0" onKeyReleased="#onKey" prefHeight="29.0" prefWidth="180.0" promptText="%main/search-field/prompt" styleClass="input" AnchorPane.leftAnchor="10.0" />
                   <ProgressIndicator fx:id="progressIndicator" layoutX="200.0" layoutY="16.0" prefHeight="24.0" prefWidth="24.0" visible="false" AnchorPane.leftAnchor="200.0" />
-                  <Hyperlink layoutX="512.0" layoutY="18.0" onAction="#showInfo" text="O programu" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
+                  <Hyperlink layoutX="512.0" layoutY="18.0" onAction="#showInfo" text="%main/about" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
                </children>
                <effect>
                   <Reflection />
@@ -37,23 +37,23 @@
                             <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="NEVER" />
                           </rowConstraints>
                            <children>
-                              <Label text="Znaky" />
-                              <Label text="Permutace" GridPane.rowIndex="1" />
+                              <Label text="%main/char-count" />
+                              <Label text="%main/perm-count" GridPane.rowIndex="1" />
                               <Label fx:id="lChars" text="-" GridPane.columnIndex="1" />
                               <Label fx:id="lPerms" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
-                        <Label layoutX="20.0" layoutY="70.0" styleClass="title" text="Nastavení" />
-                        <CheckBox fx:id="cbIgnoreDiacritics" mnemonicParsing="false" text="Ignorovat diakritiku" />
-                        <CheckBox fx:id="cbPermutations" mnemonicParsing="false" text="Vypsat permutace" />
-                        <CheckBox fx:id="cbSorted" mnemonicParsing="false" text="Řadit výsledky" />
-                        <Label styleClass="title" text="Slovník" />
-                        <CheckBox fx:id="cbDictCzech" mnemonicParsing="false" selected="true" text="Český" />
-                        <CheckBox fx:id="cbDictEnglish" mnemonicParsing="false" text="Anglický" />
+                        <Label layoutX="20.0" layoutY="70.0" styleClass="title" text="%main/set/label" />
+                        <CheckBox fx:id="cbIgnoreDiacritics" mnemonicParsing="false" text="%main/set/diacritics" />
+                        <CheckBox fx:id="cbPermutations" mnemonicParsing="false" text="%main/set/show-perms" />
+                        <CheckBox fx:id="cbSorted" mnemonicParsing="false" text="%main/set/sort-results" />
+                        <Label styleClass="title" text="%main/dict/label" />
+                        <CheckBox fx:id="cbDictCzech" mnemonicParsing="false" selected="true" text="%main/dict/cz" />
+                        <CheckBox fx:id="cbDictEnglish" mnemonicParsing="false" text="%main/dict/en" />
                         <HBox alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
                            <children>
-                              <CheckBox fx:id="cbDictUser" mnemonicParsing="false" selected="true" text="Uživatelský" />
-                              <Hyperlink onAction="#selectUserDictionary" text="(spravovat)" />
+                              <CheckBox fx:id="cbDictUser" mnemonicParsing="false" selected="true" text="%main/dict/user" />
+                              <Hyperlink onAction="#selectUserDictionary" text="%main/dict/manage" />
                            </children>
                            <padding>
                               <Insets top="5.0" />
