@@ -3,8 +3,10 @@ package cz.hartrik.anagram;
 import cz.hartrik.anagram.solve.AnagramSolver;
 import cz.hartrik.anagram.solve.Combinatorics;
 import cz.hartrik.anagram.solve.PermutationsGenerator;
+import cz.hartrik.common.Exceptions;
 import cz.hartrik.dictionary.IDictionary;
 import cz.hartrik.dictionary.data.DictionaryLoader;
+import java.text.Collator;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.ResourceBundle;
@@ -20,7 +22,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 /**
- * @version 2015-08-16
+ * @version 2015-08-19
  * @author Patrik Harag
  */
 public class MainWindowController implements Initializable {
@@ -131,12 +133,10 @@ public class MainWindowController implements Initializable {
             thread1.start();
             thread2.start();
 
-            try {
+            Exceptions.unchecked(() -> {
                 thread1.join();
                 thread2.join();
-            } catch (InterruptedException ex) {
-                throw new RuntimeException(ex);
-            }
+            });
 
             Platform.runLater(() -> {
                 textField.setEditable(true);
@@ -163,8 +163,7 @@ public class MainWindowController implements Initializable {
             dictionaryManager.getController().userDictionaries().forEach(
                     (dictionary) -> results.addAll(solver.search(dictionary)));
 
-        Stream<String> stream = results.stream();
-        stream = cbSorted.isSelected() ? stream.sorted() : stream;
+        Stream<String> stream = sort(results.stream());
         String collected = stream.collect(Collectors.joining("\n"));
 
         String text = (collected.isEmpty())
@@ -172,6 +171,12 @@ public class MainWindowController implements Initializable {
                 : collected;
 
         Platform.runLater(() -> taResult.setText(text));
+    }
+
+    private Stream<String> sort(Stream<String> stream) {
+        return cbSorted.isSelected()
+                ? stream.sorted(Collator.getInstance())  // záleží na Locale
+                : stream;
     }
 
     private void permutations(final String anagram) {
@@ -185,10 +190,7 @@ public class MainWindowController implements Initializable {
 
         if (mPerms != -1 && mPerms < 25_000 && anagram.length() <= 10) {
             final Collection<String> perms = PermutationsGenerator.generate(anagram);
-            final Stream<String> stream = (cbSorted.isSelected())
-                    ? perms.stream().sorted()
-                    : perms.stream();
-
+            final Stream<String> stream = sort(perms.stream());
             text = stream.collect(Collectors.joining("\n"));
 
         } else {
