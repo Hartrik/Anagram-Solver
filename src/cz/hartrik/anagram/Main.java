@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 
-    public static final String APP_VERSION = "3.2 /D";
+    public static final String APP_VERSION = "3.2";
 
     static final String FILE_FXML = "MainWindow.fxml";
     static final String FILE_ICON = "icon - refresh.png" ;

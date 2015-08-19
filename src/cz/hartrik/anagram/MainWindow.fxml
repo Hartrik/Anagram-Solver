@@ -45,8 +45,8 @@
                         </GridPane>
                         <Label layoutX="20.0" layoutY="70.0" styleClass="title" text="%main/set/label" />
                         <CheckBox fx:id="cbIgnoreDiacritics" mnemonicParsing="false" text="%main/set/diacritics" />
-                        <CheckBox fx:id="cbPermutations" mnemonicParsing="false" text="%main/set/show-perms" />
-                        <CheckBox fx:id="cbSorted" mnemonicParsing="false" text="%main/set/sort-results" />
+                        <CheckBox fx:id="cbPermutations" mnemonicParsing="false" selected="true" text="%main/set/show-perms" />
+                        <CheckBox fx:id="cbSorted" mnemonicParsing="false" selected="true" text="%main/set/sort-results" />
                         <Label styleClass="title" text="%main/dict/label" />
                         <CheckBox fx:id="cbDictCzech" mnemonicParsing="false" selected="true" text="%main/dict/cz" />
                         <CheckBox fx:id="cbDictEnglish" mnemonicParsing="false" text="%main/dict/en" />
