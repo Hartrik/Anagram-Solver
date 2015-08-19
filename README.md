@@ -12,9 +12,7 @@ Délka přesmyčky není nijak omezena. Na velikosti písmen nezáleží.
 
 Pokud nebude nalezeno žádné odpovídající slovo, stále je možnost ho najít ručně ve výpisu permutací. Výpis permutací je možné provést až do délky 10 znaků nebo 25 000 permutací.
 
-<p align="center">
-  <img width="700" src="https://github.com/Hartrik/Anagram-Solver/blob/master/preview.png?raw=true"/>
-</p>
+![preview](preview.png)
 
 ## Slovníky
 ### Vestavěné
